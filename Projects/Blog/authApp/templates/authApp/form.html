@@ -1,0 +1,33 @@
+{%extends 'base.html'%}
+
+{%block title%}
+<title>Registration Form</title>
+{%endblock title%}
+
+{%block navbar%}
+{% include 'navbar.html' %}
+{%endblock navbar%}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div id="form_body">
+<div class="form-signin">
+
+{{message}}
+<form action="" method='POST'>
+    {%csrf_token%}
+    {% for fm in form %}
+    {{fm.label_tag}}
+    {{fm}}
+    {{fm.errors|striptags}}
+    <br>
+    <br>
+    
+    {%endfor%}
+    <input type="submit" value='Submit'>
+</form>
+
+</div>
+</div>
+{% endblock content %}
+

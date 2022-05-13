@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {%block title%}
+    {%endblock title%}
+</head>
+<body>
+    {% block navbar %}
+    {% endblock navbar %}
+    <main class='content'>
+    {% block content %}
+    {% endblock content %}
+    </main>
+    {% block script %}
+    {% endblock script %}
+
+</body>
+</html>
+
