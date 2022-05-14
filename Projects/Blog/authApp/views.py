@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from django.views.generic import FormView
-from django.views.generic.base import TemplateView
 from .forms import UserForm
 
 from django.contrib.auth.forms import AuthenticationForm
@@ -9,12 +8,11 @@ from django.contrib import messages
 
 from django.shortcuts import redirect, render
 
+
 # Create your views here.
-class HomeView(TemplateView):
-    template_name = 'authApp/index.html'
 
 class RegistrationView(FormView):
-    template_name = 'authApp/form.html'
+    template_name = 'form.html'
     form_class = UserForm
     success_url = '/'
 
@@ -24,7 +22,7 @@ class RegistrationView(FormView):
         
 
 class LoginView(FormView):
-    template_name = 'authApp/form.html'
+    template_name = 'form.html'
     form_class = AuthenticationForm
 
     def form_valid(self, form):
@@ -33,7 +31,7 @@ class LoginView(FormView):
         user = authenticate(username=username, password=password)
         if user is not None:
            login(self.request, user)
-           self.success_url = '/'
+           self.success_url = '/dashboard'
            
         else:
            messages.error(self.request,"Invalid username or password.")
@@ -44,4 +42,20 @@ class LoginView(FormView):
 def logout_view(request):
     logout(request)
     return redirect('/')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

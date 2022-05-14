@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block navbar %}
+{% include 'dashboard_navbar.html' %}
+{% endblock navbar %}
+
+{% block content %}
+<h1>{{article.title}}</h1>
+<hr>
+
+{%if article.image%}
+<div id='college_image'>
+<img src="{{article.image.url}}" alt="Profile Picture">
+</div>
+<hr>
+{%endif%}
+
+<p>{{article.content}}</p>
+<hr>
+
+<i>--{{article.author}}</i>
+{% endblock content %}

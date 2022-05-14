@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Hamro Blog</title>
+{% endblock title %}
+
+{% block navbar %}
+{% include 'navbar.html' %}
+{% endblock navbar %}
+
+{% block content %}
+
+<div class="blog-body">
+{% for article in articles %}
+		        <ul class="navigation">
+                    <li class="nav_item"><h1><a href="{% url 'blog-detail' article.pk %}">{{article.title}}</a></h1></li>
+                    <li class="nav_item"><i>--{{article.author}}</i></li>
+		        </ul>
+                
+{%endfor%}
+</div>
+{% endblock content %}

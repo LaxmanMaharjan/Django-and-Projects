@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block navbar %}
+{% include 'dashboard_navbar.html' %}
+{% endblock navbar %}
+
+{% block content %}
+<h2>Welcome {{username}}!!</h2>
+<hr>
+
+<div class="blog-body">
+{% for article in articles %}
+		        <ul class="navigation">
+                    <li class="nav_item"><h1><a href="{% url 'blog-detail' article.pk %}">{{article.title}}</a></h1></li>
+                    <li class="nav_item"><i>--{{username}}</i></li>
+                    <li class="nav_item"><a href="{% url 'blog-update' article.pk %}"><button>Update</button></a></li>
+                    <li class="nav_item"><a href="{% url 'blog-delete' article.pk %}"><button>Delete</button></a></li>
+		        </ul>
+                
+{%endfor%}
+</div>
+
+{{content}}
+{% endblock content %}

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{%block title%}
+<title>Delete Article</title>
+{%endblock title%}
+
+{% block navbar %}
+{% include 'dashboard_navbar.html' %}
+{% endblock navbar %}
+
+{% block content %}
+    <h1> Delete Blog </h1>
+    <form method="post" >
+        {% csrf_token %}
+        <p>Are you sure you want to delete post "{{ article }}"?</p>
+        <input type="submit" value="confirm">
+    </form>
+{% endblock content %}
+
