@@ -15,7 +15,24 @@
 {%endif%}
 
 <p>{{article.content}}</p>
+<i>--{{article.author}}</i>
+<hr>
+<h2>Comments</h2>
 <hr>
 
-<i>--{{article.author}}</i>
+{% if comments %}
+{% for comment in comments %}
+<p>{{comment.content}}--<i>{{comment.author}}</i>
+<a href="{% url 'comment-update' comment.pk%}"><button>Update</button></a>
+<a href="{% url 'comment-delete' comment.pk%}"><button>Delete</button></a>
+</p>
+<hr>
+
+{%endfor%}
+{%endif%}
+<form action="" method="POST">
+    {%csrf_token%}
+    {{form.as_p}}
+    <input type="submit" value="comment">
+</form>
 {% endblock content %}
