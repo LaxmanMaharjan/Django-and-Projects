@@ -23,6 +23,7 @@
 {% if comments %}
 {% for comment in comments %}
 <p>{{comment.content}}--<i>{{comment.author}}</i>
+<p>{{comment.created_date}}</p>
 <a href="{% url 'comment-update' comment.pk%}"><button>Update</button></a>
 <a href="{% url 'comment-delete' comment.pk%}"><button>Delete</button></a>
 </p>

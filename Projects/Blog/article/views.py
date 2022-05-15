@@ -15,11 +15,11 @@ from article.models import Article, Comment
 from django.shortcuts import redirect
 
 # Create your views here.
+
 class HomeView(ListView):
     template_name = 'article/index.html'
     model = Article
     context_object_name = 'articles'
-
 
 class DashboardView(LoginRequiredMixin, View):
     def get(self, request):
@@ -41,7 +41,6 @@ class CreateArticleView(LoginRequiredMixin, FormView):
         content = form.cleaned_data['content']
         image = form.cleaned_data['image']
         
-
         article = Article(author=user, title=title, content=content, image=image, slug=title)
         article.save()
 
