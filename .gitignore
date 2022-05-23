@@ -3,6 +3,9 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# .env file for django environment variable
+.env
+
 # .pyc extensions
 *.pyc
 
