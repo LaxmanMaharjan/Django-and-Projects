@@ -10,24 +10,13 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-<div id="form_body">
-<div class="form-signin">
 
 <form action="" method='POST' enctype="multipart/form-data">
     {%csrf_token%}
-    {% for fm in form %}
-    {{fm.label_tag}}
-    {{fm}}
-    {{fm.errors|striptags}}
-    <br>
-    <br>
-    
-    {%endfor%}
+    {{form.media}}
+    {{form.as_p}}
     <input type="submit" value='Submit'>
 </form>
 
-</div>
-
-</div>
 {% endblock content %}
 

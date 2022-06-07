@@ -31,7 +31,7 @@ class DashboardView(LoginRequiredMixin, View):
         return render(request,'article/dashboard.html', context=context)
 
 class CreateArticleView(LoginRequiredMixin, FormView):
-    template_name = 'form.html' 
+    template_name = 'post_form.html' 
     success_url = '/'
     form_class = ArticleForm
 
@@ -76,7 +76,7 @@ class ArticleDetailView(View):
         
     
 class ArticleUpdateView(LoginRequiredMixin, UpdateView):
-    template_name = 'form.html' 
+    template_name = 'post_form.html' 
     form_class = ArticleForm
     model = Article
 
